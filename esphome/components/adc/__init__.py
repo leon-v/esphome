@@ -38,12 +38,20 @@ ATTENUATION_MODES = {
     "auto": "auto",
 }
 
+adc_channel_t = cg.global_ns.enum("adc_channel_t")
 adc1_channel_t = cg.global_ns.enum("adc1_channel_t")
 adc2_channel_t = cg.global_ns.enum("adc2_channel_t")
 
 # From https://github.com/espressif/esp-idf/blob/v5.2.2/components/hal/include/hal/adc_types.h
 # pin to adc1 channel mapping
 ESP32_VARIANT_ADC1_PIN_TO_CHANNEL = {
+    VARIANT_ESP32C2: {
+        0: adc_channel_t.ADC_CHANNEL_0,
+        1: adc_channel_t.ADC_CHANNEL_1,
+        2: adc_channel_t.ADC_CHANNEL_2,
+        3: adc_channel_t.ADC_CHANNEL_3,
+        4: adc_channel_t.ADC_CHANNEL_4,
+    },
     VARIANT_ESP32C6: {
         0: adc1_channel_t.ADC_CHANNEL_0,    # ADC1_CHANNEL_0,
         1: adc1_channel_t.ADC_CHANNEL_1,
